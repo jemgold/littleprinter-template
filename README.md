@@ -20,6 +20,6 @@ Run this to create a new publication.
 
 ## License
 
-Copyright © {{year}} @jongold
+Copyright © 2013 @jongold
 
 Distributed under the Eclipse Public License, the same as Clojure.
