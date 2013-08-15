@@ -4,20 +4,19 @@
             [compojure.route :as route]
             [ring.middleware.etag.core :refer [with-etag create-hashed-etag-fn md5]]
             [ring.util.response :refer [response]]
-            [net.cgrand.enlive-html :as html]))
+            [ring.adapter.jetty :refer [run-jetty]]
+            [clojure.java.io :refer [file]]
+            [{{name}}.views.edition :as edition]))
 
-(defn edition []
-  (layout/common [:h1 "Hello world!"]))
-
-(defn app-routes
+(defroutes app-routes
   (GET "/meta.json" []
        (response (file "static/meta.json")))
   (GET "/icon.png" []
        (response (file "static/images/ribbon.png")))
   (GET "/sample" []
-       (edition {:title {{name}} }))
+       (edition/edition {:title "{{name}}"}))
   (GET "/edition" [data]
-       (edition {:title data}))
+       (edition/edition {:title data}))
   (route/files "/" {:root "static"})
   (route/not-found "Not found"))
 
@@ -25,3 +24,7 @@
   (->
    (handler/site app-routes)
    (with-etag {:etag-generator (create-hashed-etag-fn md5)})))
+
+
+(defn -main []
+  (run-jetty #'app {:port 3000 :join? false}))

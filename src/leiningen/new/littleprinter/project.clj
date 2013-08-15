@@ -8,7 +8,7 @@
                  [ring/ring-core "1.1.8"]
                  [ring/ring-jetty-adapter "1.1.8"]
                  [ring.middleware.etag "1.0.0-SNAPSHOT"]
-                 [enlive "1.0.1"]]
+                 [hiccup "1.0.4"]]
   :plugins [[lein-ring "0.8.6"]
             [lein-heroku-deploy "0.1.0"]]
   :main "{{name}}.server"
