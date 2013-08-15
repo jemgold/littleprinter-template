@@ -1,0 +1,14 @@
+{
+  "owner_email" : "FIXME",
+  "publication_api_version":"1.0",
+  "name": "{{name}}",
+  "description": "FIXME",
+  "delivered_on": "every day",
+  "send_timezone_info": true,
+  "send_delivery_count": true,
+  "external_configuration": false,
+  "config" : {
+    "fields": [
+    ]
+  }
+}
