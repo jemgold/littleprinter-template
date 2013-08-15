@@ -1,17 +1,11 @@
 (ns leiningen.new.littleprinter
-  (:use [leiningen.new.templates :only [renderer name-to-path ->files]]
-        [leinjacker.utils :only [lein-generation]]))
+  (:use [leiningen.new.templates :only [renderer name-to-path ->files]]))
 
 (def render (renderer "littleprinter"))
-
-(defn check-lein-version []
-  (if (< (lein-generation) 2)
-    (throw (new Exception "Come on man, upgrade to Leiningen v2…"))))
 
 (defn littleprinter
   "Create a new LittlePrinter publication!"
   [name]
-  (check-lein-version)
   (let [data {:name name
               :sanitized (name-to-path name)}]
     (println "Generating a rad new LittlePrinter publication named" (str name "..."))
