@@ -1,4 +1,4 @@
-(defproject littleprinter/lein-template "0.1.0-SNAPSHOT"
+(defproject littleprinter/lein-template "0.1.0"
   :description "A template for generating LittlePrinter publications"
   :url "http://github.com/jongd/littleprinter-template"
   :license {:name "Eclipse Public License"
