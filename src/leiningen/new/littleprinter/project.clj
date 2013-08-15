@@ -11,11 +11,11 @@
                  [hiccup "1.0.4"]]
   :plugins [[lein-ring "0.8.6"]
             [lein-heroku-deploy "0.1.0"]]
-  :main "{{name}}.server"
+  :main {{name}}.server
   :ring {:auto-refresh? true
          :handler {{name}}.server/app}
   :resources-path "static"
   :profiles {:dev {:dependencies [[ring-mock "0.1.3"]]}}
-  :herokuy {
+  :heroku {
             :app-name "FIXME"
             :app-url "FIXME"})
