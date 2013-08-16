@@ -1,11 +1,11 @@
 (ns {{name}}.server
-  (:use compojure.core)
+  (:use compojure.core
+        ring.middleware.etag.core :only [with-etag create-hashed-etag-fn md5]
+        ring.util.response :only [response]
+        ring.adapter.jetty :only [run-jetty]
+        clojure.java.io :only [file])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
-            [ring.middleware.etag.core :refer [with-etag create-hashed-etag-fn md5]]
-            [ring.util.response :refer [response]]
-            [ring.adapter.jetty :refer [run-jetty]]
-            [clojure.java.io :refer [file]]
             [{{name}}.views.edition :as edition]))
 
 (defroutes app-routes
